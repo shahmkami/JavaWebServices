@@ -19,6 +19,5 @@ public class DatabaseClass {
     public static Map<String,Message> getMessages(){
         return messages;    
     }
-
     
 }

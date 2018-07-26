@@ -67,7 +67,7 @@ public class MessageResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Message sendMessage(Message message){
-        return ms.addMessage(message);
+        return ms.addMessage("3",message);
     }
     
     @GET

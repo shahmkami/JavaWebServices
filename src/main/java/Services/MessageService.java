@@ -6,8 +6,10 @@
 package Services;
 
 import Models.Message;
+import database.DatabaseClass;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -15,18 +17,18 @@ import java.util.List;
  */
 
 public class MessageService {
-    public List<Message> messages=new ArrayList<>();
-        
+    //public List<Message> messages=new ArrayList<>();
+    private Map<String,Message> messages=DatabaseClass.getMessages();
     public List<Message> getAllMessages(){
         //List<Message> messages=new ArrayList<>();
         Message m1=new Message(1,"here it is!","holowitz");
         Message m2=new Message(2,"I  exits and moving on","Sheldon");
-        messages.add(m1);
-        messages.add(m2);
-        return messages;
+        messages.put("1",m1);
+        messages.put("2",m2);
+        return new ArrayList<Message>(messages.values());
     }
-    public Message addMessage(Message message){
-       messages.add(message);    
+    public Message addMessage(String id,Message message){
+       messages.put(id,message);    
        return message;
     }
     
